@@ -1,0 +1,48 @@
+controllers:
+    resource: ../src/Controller/
+    type: annotation
+
+kernel:
+    resource: ../src/Kernel.php
+    type: annotation
+
+app_registro:
+    path: /registro
+    controller: App\Controller\RegistroController::index
+
+app_login:
+    path: /login
+    controller: App\Controller\SecurityController::login
+
+app_logout:
+    path: /logout
+    controller: App\Controller\SecurityController::logout
+
+app_dashboard:
+    path: /dashboard
+    controller: App\Controller\DashboardController::index
+
+app_evento:
+    path: /home
+    controller: App\Controller\EventoController::index
+    methods:  [GET]
+
+app_evento_new:
+    path: /evento_new
+    controller: App\Controller\EventoController::new
+    methods:  [GET, POST]
+
+app_evento_edit:
+    path: /evento_edit
+    controller: App\Controller\EventoController::edit
+    methods:  [GET, POST]
+
+app_evento_show:
+    path: /evento_show
+    controller: App\Controller\EventoController::show
+    methods:  [GET]
+
+app_evento_delete:
+    path: /evento_delete
+    controller: App\Controller\EventoController::delete
+    methods:  [POST]

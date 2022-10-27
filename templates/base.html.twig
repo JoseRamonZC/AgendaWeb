@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Agenda Web{% endblock %}</title>
+        <link rel="icon" href="{{ asset('fotos/agenda.png') }}">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrapC2.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/stylesheet.css') }}">
+        {% endblock %}
+
+    </head>
+    <body>
+      {% block body %}
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <div class="container-fluid">
+            <a class="navbar-brand mr-4" href="{{ path('app_dashboard') }}">Agenda Web</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item ml-3">
+                {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                {% if app.request.get('_route') == "app_evento_new" %}
+                  <a class="nav-link a active" aria-current="page" href="{{ path('app_evento_new') }}">Crear evento</a>
+                  {% else %}
+                  <a class="nav-link a" aria-current="page" href="{{ path('app_evento_new') }}">Crear evento</a>
+                  {% endif %}
+                </li>
+                <li class="nav-item">
+                {% if app.request.get('_route') == "app_evento" %}
+                  <a class="nav-link a ml-3 mr-5 active" href="{{ path('app_evento') }}">Mis eventos</a>
+                  {% else %}
+                  <a class="nav-link a ml-3 mr-3" href="{{ path('app_evento') }}">Mis eventos</a>
+                  {% endif %}
+                </li>
+
+                {# Comprobamos que el usuario este registrado #}
+
+                  
+                    
+                    <a href="{{ path('app_logout') }}"><button class="boton-nav a">Logout</button></a>
+                  {% else %}
+                    <a href="{{ path('app_login') }}"><button class="boton-nav a mr-3">Login</button></a>
+                    <a href="{{ path('app_registro') }}"><button class="boton-nav a mr-3">Registrate</button></a>
+                {% endif %}
+            </div>
+          </div>
+        </nav> 
+          <script src="{{ asset('js/jquery.min.js') }}"></script>
+          <script src="{{ asset('bootstrap/js/bootstrap.js') }}"></script>
+        
+        {% endblock %}
+    </body>
+</html>
