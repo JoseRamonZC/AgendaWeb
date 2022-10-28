@@ -3,6 +3,36 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
+<nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+              <a class="navbar-brand mr-4">Agenda Web</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                  {% if app.request.get('_route') == "app_evento" %}
+                    <a class="nav-link a ml-3 mr-5 active" href="{{ path('app_evento') }}">Mis eventos</a>
+                    {% else %}
+                    <a class="nav-link a ml-3 mr-3" href="{{ path('app_evento') }}">Mis eventos</a>
+                    {% endif %}
+                  </li>
+
+                  {# Comprobamos que el usuario este registrado #}
+
+                    
+                      
+                      <a href="{{ path('app_logout') }}"><button class="boton-nav a">Logout</button></a>
+                    {% else %}
+                      <a href="{{ path('app_login') }}"><button class="boton-nav a mr-3">Login</button></a>
+                      <a href="{{ path('app_registro') }}"><button class="boton-nav a mr-3">Registrate</button></a>
+                  {% endif %}
+              </div>
+            </div>
+          </nav> 
+            <script src="{{ asset('js/jquery.min.js') }}"></script>
+            <script src="{{ asset('bootstrap/js/bootstrap.js') }}"></script>
 
 <div id="container" class=" container coll-auto d-flex align-items-center justify-content-center bg-white shadow p-1 mb-5 bg-body rounded">
 <form method="post">
@@ -16,8 +46,8 @@
         </div>
     {% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputEmail">Email</label>
+    <h1 class="h3 mb-4 font-weight-normal">Loguate</h1>
+    <label class="mb-2" for="inputEmail">Email</label>
     <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
     <label for="inputPassword">Password</label>
     <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>

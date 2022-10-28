@@ -47,7 +47,7 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
         }
 
         // For example:
-        return new RedirectResponse(('home'));
+        return new RedirectResponse(('dashboard'));
         //throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
     }
 

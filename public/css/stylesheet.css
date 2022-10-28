@@ -34,12 +34,18 @@ body {
 
 h1,h2,h3,h4,h5,h6{
     font-family: signikabold;
-    color: #FF5A6E;
+    color: #000000;
 }
 
 #container{
     width: 500px;
     height: 500px;
+    margin-top: 50px;
+}
+
+#container2{
+    width: 1500px;
+    height: 1000px;
     margin-top: 50px;
 }
 
@@ -73,11 +79,11 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .a:hover{
-    color: #86af5c !important; 
+    color: #c0c0c083 !important; 
 }
 
 .active{
-    color: #86af5c !important; 
+    color: #c0c0c083 !important; 
 }
 
 .cursor:hover{
@@ -94,5 +100,6 @@ h1,h2,h3,h4,h5,h6{
 .group{
     background-color: #FF5A6E;
 }
+
 
 

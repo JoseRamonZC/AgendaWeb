@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Evento;
 use App\Form\EventoType;
 use App\Repository\EventoRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,7 +16,7 @@ class EventoController extends AbstractController
 {
     //#[Route('/', name: 'home', methods: ['GET'])]
 
-    public function index(EventoRepository $eventoRepository): Response
+    public function index(EventoRepository $eventoRepository, PaginatorInterface $paginator): Response
     {
         return $this->render('evento/index.html.twig', [
             'eventos' => $eventoRepository->findAll(),
@@ -33,7 +34,7 @@ class EventoController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $eventoRepository->save($evento, true);
 
-            return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_evento', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('evento/new.html.twig', [
@@ -61,7 +62,7 @@ class EventoController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $eventoRepository->save($evento, true);
 
-            return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_evento', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('evento/edit.html.twig', [
@@ -78,6 +79,6 @@ class EventoController extends AbstractController
             $eventoRepository->remove($evento, true);
         }
 
-        return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_evento', [], Response::HTTP_SEE_OTHER);
     }
 }
