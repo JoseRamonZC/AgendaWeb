@@ -60,7 +60,40 @@
             left:'prev,next, today',
             center:'title',
             right:'dayGridMonth,timeGridWeek,timeGridDay'
-          }
+          },
+           eventSources: [
+
+            // your event source
+            {
+              events: [ // put the array in the `events` property
+                {
+                  title  : 'event1',
+                  description : 'estamos solos',
+                  start  : '2022-10-01'
+                },
+                {
+                  title  : 'event2',
+                  description : 'estamos solos2',
+                  start  : '2022-10-05',
+                  end    : '2022-10-07'
+                },
+                {
+                  title  : 'event3',
+                  description : 'estamos solos3',
+                  start  : '2022-10-09T12:30:00',
+                }
+              ],
+              color: 'black',     // an option!
+              textColor: 'yellow' // an option!
+            }],
+
+            eventClick:function(callEvent, jsEvent, view){
+              $("#tituloEvento").html(calllEvent.title);
+              $("#descripcionEvento").html(calllEvent.descripcion);
+
+              $("#exampleModal").modal();
+            }
+
         });
         calendar.render();
       });
@@ -75,17 +108,18 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Añadir evento</h5>
+        <h5 class="modal-title" id="tituloEvento"></h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
+        <div id ="descripcionEvento"></div>
       </div>
       <div class="modal-footer">
-      <button type="button" class="btn-success" data-bs-dismiss="modal">Añadir</button>
-      <button type="button" class="btn-success" data-bs-dismiss="modal">Modificar</button>
-      <button type="button" class="btn-danger" data-bs-dismiss="modal">Borrar</button>
-        <button type="button" class="btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <a href="{{ path('app_evento_new') }}"><button id="boton" class="btn-success" data-bs-dismiss="modal">Añadir</button></a>
+        <a href="{{ path('app_evento_edit') }}"><button id="boton" class="btn-success" data-bs-dismiss="modal">Modificar</button></a>
+        <a href="{{ path('app_evento_delete') }}"><button id="boton" class="btn-danger" data-bs-dismiss="modal">Borrar</button></a>
+        <a href="{{ path('app_dashboard') }}"><button id="boton" class="btn-secondary" data-bs-dismiss="modal">Cerrar</button></a>
+        {# {{ include('evento/_delete_form.html.twig') }} #}
       </div>
     </div>
   </div>

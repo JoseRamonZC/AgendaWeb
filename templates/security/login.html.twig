@@ -3,14 +3,20 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
-<nav class="navbar navbar-expand-lg navbar-light">
+ <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
-              <a class="navbar-brand mr-4">Agenda Web</a>
+              <a class="navbar-brand mr-4" href="{{ path('app_dashboard') }}">Agenda Web</a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item ml-3">
+                  {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                  {% if app.request.get('_route') == "app_evento_new" %}
+                    {% else %}
+                    {% endif %}
+                  </li>
                   <li class="nav-item">
                   {% if app.request.get('_route') == "app_evento" %}
                     <a class="nav-link a ml-3 mr-5 active" href="{{ path('app_evento') }}">Mis eventos</a>

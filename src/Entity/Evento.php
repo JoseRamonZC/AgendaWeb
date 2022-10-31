@@ -26,13 +26,13 @@ class Evento
     #[ORM\Column]
     private ?\DateInterval $periodicidad = null;
 
-    #[ORM\Column(type: Types::ARRAY)]
-    private array $categoria = [];
+    #[ORM\Column(length: 255)]
+    private ?string $categoria = null;
 
     #[ORM\Column(length: 100)]
     private ?string $tipo = null;
 
-    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'user')]
+    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'evento')]
     private $user;
 
     public function getId(): ?int
@@ -88,12 +88,12 @@ class Evento
         return $this;
     }
 
-    public function getCategoria(): array
+    public function getCategoria(): ?string
     {
         return $this->categoria;
     }
 
-    public function setCategoria(array $categoria): self
+    public function setCategoria(string $categoria): self
     {
         $this->categoria = $categoria;
 
@@ -108,6 +108,18 @@ class Evento
     public function setTipo(string $tipo): self
     {
         $this->tipo = $tipo;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

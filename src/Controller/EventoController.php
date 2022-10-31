@@ -25,13 +25,15 @@ class EventoController extends AbstractController
 
     //#[Route('/new', name: 'app_evento_new', methods: ['GET', 'POST'])]
 
-    public function new(Request $request, EventoRepository $eventoRepository): Response
+    public function new(Request $request,EventoRepository $eventoRepository): Response
     {
         $evento = new Evento();
         $form = $this->createForm(EventoType::class, $evento);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $user = $this->getUser();
+            $evento->setUser($user);
             $eventoRepository->save($evento, true);
 
             return $this->redirectToRoute('app_evento', [], Response::HTTP_SEE_OTHER);

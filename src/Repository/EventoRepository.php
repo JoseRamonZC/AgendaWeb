@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\User;
 use App\Entity\Evento;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -16,7 +17,7 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class EventoRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+    public function __construct(ManagerRegistry $registry, ManagerRegistry $doctrine)
     {
         parent::__construct($registry, Evento::class);
     }
@@ -37,6 +38,21 @@ class EventoRepository extends ServiceEntityRepository
         if ($flush) {
             $this->getEntityManager()->flush();
         }
+    }
+
+
+    public function buscar(User $user)
+    {
+        $em = $doctrine->getManager();
+
+        $qEvento = $em->getManager()->createQuery(''
+        . 'SELECT x FROM App:Evento x '
+        . 'JOIN x.user u '
+        . 'WHERE x.user_id = ' . $user->getId() . ' '
+        );
+            $eventos = $qEvento ->getResult();
+
+            echo json_encode($eventos);
     }
 
 //    /**
