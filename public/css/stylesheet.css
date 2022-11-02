@@ -45,7 +45,13 @@ h1,h2,h3,h4,h5,h6{
 
 #container2{
     width: 1500px;
-    height: 1000px;
+    height: fit-content;
+    margin-top: 50px;
+}
+
+#container3{
+    width: 1500px;
+    height: 500px;
     margin-top: 50px;
 }
 

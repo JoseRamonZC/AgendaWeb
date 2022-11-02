@@ -33,16 +33,16 @@ app_evento_new:
     methods:  [GET, POST]
 
 app_evento_edit:
-    path: /evento_edit
+    path: /evento_edit/{id}
     controller: App\Controller\EventoController::edit
     methods:  [GET, POST]
 
 app_evento_show:
-    path: /evento_show
+    path: /evento_show/{id}
     controller: App\Controller\EventoController::show
     methods:  [GET]
 
 app_evento_delete:
-    path: /evento_delete
+    path: /evento_delete/{id}
     controller: App\Controller\EventoController::delete
     methods:  [POST]

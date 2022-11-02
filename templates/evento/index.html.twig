@@ -14,9 +14,7 @@
                   <li class="nav-item ml-3">
                   {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
                   {% if app.request.get('_route') == "app_evento_new" %}
-                    <a class="nav-link a active" aria-current="page" href="{{ path('app_evento_new') }}">Crear evento</a>
                     {% else %}
-                    <a class="nav-link a" aria-current="page" href="{{ path('app_evento_new') }}">Crear evento</a>
                     {% endif %}
                   </li>
                   <li class="nav-item">
@@ -41,13 +39,14 @@
           </nav> 
             <script src="{{ asset('js/jquery.min.js') }}"></script>
             <script src="{{ asset('bootstrap/js/bootstrap.js') }}"></script>
+
+    <div id="container2" class="container bg-white shadow p-1 mb-5 bg-body rounded">
+
     <h1 class="p-4 ml-4">Eventos</h1>
-
-    <div id="container2" class=" container bg-white shadow p-1 mb-5 bg-body rounded">
-
     <table class="table">
         <thead>
             <tr>
+                <th>Id</th>
                 <th>Titulo</th>
                 <th>Descripcion</th>
                 <th>Dia</th>
@@ -60,6 +59,7 @@
         <tbody>
         {% for evento in eventos %}
             <tr>
+                <td>{{ evento.id }}</td>
                 <td>{{ evento.titulo }}</td>
                 <td>{{ evento.descripcion }}</td>
                 <td>{{ evento.dia ? evento.dia|date('Y-m-d') : '' }}</td>

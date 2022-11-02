@@ -39,36 +39,38 @@
           </nav> 
             <script src="{{ asset('js/jquery.min.js') }}"></script>
             <script src="{{ asset('bootstrap/js/bootstrap.js') }}"></script>
-    <h1>Evento</h1>
+            <div id="container3" class="container bg-white shadow p-3 mb-5 bg-body rounded">
+                  <h1 class="p-1 mb-3">Evento</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Titulo</th>
-                <td>{{ evento.titulo }}</td>
-            </tr>
-            <tr>
-                <th>Descripcion</th>
-                <td>{{ evento.descripcion }}</td>
-            </tr>
-            <tr>
-                <th>Dia</th>
-                <td>{{ evento.dia ? evento.dia|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Periodicidad</th>
-                <td>{{ evento.periodicidad ? evento.periodicidad.format('%y year(s), %m month(s), %d day(s)') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Categoria</th>
-                <td>{{ evento.categoria ? evento.categoria|join(', ') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Tipo</th>
-                <td>{{ evento.tipo }}</td>
-            </tr>
-        </tbody>
-    </table>
+                  <table class="table">
+                      <tbody>
+                          <tr>
+                              <th>Titulo</th>
+                              <td>{{ evento.titulo }}</td>
+                          </tr>
+                          <tr>
+                              <th>Descripcion</th>
+                              <td>{{ evento.descripcion }}</td>
+                          </tr>
+                          <tr>
+                              <th>Dia</th>
+                              <td>{{ evento.dia ? evento.dia|date('Y-m-d') : '' }}</td>
+                          </tr>
+                          <tr>
+                              <th>Periodicidad</th>
+                              <td>{{ evento.periodicidad ? evento.periodicidad.format('%y year(s), %m month(s), %d day(s)') : '' }}</td>
+                          </tr>
+                          <tr>
+                              <th>Categoria</th>
+                              <td>{{ evento.categoria ? evento.categoria|join(', ') : '' }}</td>
+                          </tr>
+                          <tr>
+                              <th>Tipo</th>
+                              <td>{{ evento.tipo }}</td>
+                          </tr>
+                      </tbody>
+                  </table>
 
-    <a href="{{ path('app_dashboard') }}">Volver</a>
+                  <a href="{{ path('app_dashboard') }}"><button class="btn btn-md btn-primary mt-3">Volver</button></a>
+              </div>
 {% endblock %}

@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/evento')]
 class EventoController extends AbstractController
 {
-    //#[Route('/', name: 'home', methods: ['GET'])]
+    #[Route('/', name: 'home', methods: ['GET'])]
 
     public function index(EventoRepository $eventoRepository, PaginatorInterface $paginator): Response
     {

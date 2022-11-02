@@ -50,7 +50,6 @@
           initialView: 'dayGridMonth',
           dateClick: function(info) {
             alert('Ha seleccionado: ' + info.dateStr);
-            alert('Vista actual: ' + info.view.type);
             // change the day's background color just for fun
             info.dayEl.style.backgroundColor = 'red';
             $("#exampleModal").modal();
@@ -69,27 +68,32 @@
                 {
                   title  : 'event1',
                   description : 'estamos solos',
-                  start  : '2022-10-01'
+                  start  : '2022-11-01'
+                },
+                 {
+                  title  : 'event1',
+                  description : 'estamos solos',
+                  start  : '2022-11-02'
                 },
                 {
                   title  : 'event2',
                   description : 'estamos solos2',
-                  start  : '2022-10-05',
-                  end    : '2022-10-07'
+                  start  : '2022-11-05',
+                  end    : '2022-11-07'
                 },
                 {
                   title  : 'event3',
                   description : 'estamos solos3',
-                  start  : '2022-10-09T12:30:00',
+                  start  : '2022-11-09T12:30:00',
                 }
               ],
-              color: 'black',     // an option!
-              textColor: 'yellow' // an option!
+              color: 'green',     // an option!
+              textColor: 'white' // an option!
             }],
 
             eventClick:function(callEvent, jsEvent, view){
-              $("#tituloEvento").html(calllEvent.title);
-              $("#descripcionEvento").html(calllEvent.descripcion);
+              $("#tituloEvento").html(callEvent.title);
+              $("#descripcionEvento").html(callEvent.descripcion);
 
               $("#exampleModal").modal();
             }
@@ -116,10 +120,8 @@
       </div>
       <div class="modal-footer">
         <a href="{{ path('app_evento_new') }}"><button id="boton" class="btn-success" data-bs-dismiss="modal">Añadir</button></a>
-        <a href="{{ path('app_evento_edit') }}"><button id="boton" class="btn-success" data-bs-dismiss="modal">Modificar</button></a>
-        <a href="{{ path('app_evento_delete') }}"><button id="boton" class="btn-danger" data-bs-dismiss="modal">Borrar</button></a>
         <a href="{{ path('app_dashboard') }}"><button id="boton" class="btn-secondary" data-bs-dismiss="modal">Cerrar</button></a>
-        {# {{ include('evento/_delete_form.html.twig') }} #}
+        
       </div>
     </div>
   </div>
