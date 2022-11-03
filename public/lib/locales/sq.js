@@ -4,24 +4,24 @@ FullCalendar.globalLocales.push(function () {
   var sq = {
     code: "sq",
     week: {
-      dow: 1,
-      doy: 4
+      dow: 1, // Monday is the first day of the week.
+      doy: 4  // The week that contains Jan 4th is the first week of the year.
     },
     buttonText: {
       prev: "mbrapa",
-      next: "P\xEBrpara",
+      next: "Përpara",
       today: "sot",
       month: "Muaj",
-      week: "Jav\xEB",
-      day: "Dit\xEB",
-      list: "List\xEB"
+      week: "Javë",
+      day: "Ditë",
+      list: "Listë"
     },
     weekText: "Ja",
-    allDayText: "Gjith\xEB dit\xEBn",
+    allDayText: "Gjithë ditën",
     moreLinkText: function(n) {
-      return "+m\xEB tep\xEBr " + n;
+      return "+më tepër " + n;
     },
-    noEventsText: "Nuk ka evente p\xEBr t\xEB shfaqur"
+    noEventsText: "Nuk ka evente për të shfaqur"
   };
 
   return sq;

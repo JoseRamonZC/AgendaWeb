@@ -4,24 +4,24 @@ FullCalendar.globalLocales.push(function () {
   var sr = {
     code: "sr",
     week: {
-      dow: 1,
-      doy: 7
+      dow: 1, // Monday is the first day of the week.
+      doy: 7  // The week that contains Jan 1st is the first week of the year.
     },
     buttonText: {
       prev: "Prethodna",
-      next: "Sledec\u0301i",
+      next: "Sledeći",
       today: "Danas",
-      month: "M\u0435s\u0435c",
-      week: "N\u0435d\u0435lja",
+      month: "Mеsеc",
+      week: "Nеdеlja",
       day: "Dan",
-      list: "Plan\u0435r"
+      list: "Planеr"
     },
     weekText: "Sed",
-    allDayText: "C\u0435o dan",
+    allDayText: "Cеo dan",
     moreLinkText: function(n) {
-      return "+ jo\u0161 " + n;
+      return "+ još " + n;
     },
-    noEventsText: "N\u0435ma doga\u0111aja za prikaz"
+    noEventsText: "Nеma događaja za prikaz"
   };
 
   return sr;

@@ -4,11 +4,11 @@ FullCalendar.globalLocales.push(function () {
   var nl = {
     code: "nl",
     week: {
-      dow: 1,
-      doy: 4
+      dow: 1, // Monday is the first day of the week.
+      doy: 4  // The week that contains Jan 4th is the first week of the year.
     },
     buttonText: {
-      prev: "Vorige",
+      prev: "Voorgaand",
       next: "Volgende",
       today: "Vandaag",
       year: "Jaar",

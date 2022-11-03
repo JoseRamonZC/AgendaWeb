@@ -4,11 +4,11 @@ FullCalendar.globalLocales.push(function () {
   var lb = {
     code: "lb",
     week: {
-      dow: 1,
-      doy: 4
+      dow: 1, // Monday is the first day of the week.
+      doy: 4  // The week that contains Jan 4th is the first week of the year.
     },
     buttonText: {
-      prev: "Zr\xE9ck",
+      prev: "Zréck",
       next: "Weider",
       today: "Haut",
       month: "Mount",
@@ -18,8 +18,8 @@ FullCalendar.globalLocales.push(function () {
     },
     weekText: "W",
     allDayText: "Ganzen Dag",
-    moreLinkText: "m\xE9i",
-    noEventsText: "Nee Evenementer ze affich\xE9ieren"
+    moreLinkText: "méi",
+    noEventsText: "Nee Evenementer ze affichéieren"
   };
 
   return lb;

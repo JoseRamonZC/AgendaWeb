@@ -4,22 +4,22 @@ FullCalendar.globalLocales.push(function () {
   var tr = {
     code: "tr",
     week: {
-      dow: 1,
-      doy: 7
+      dow: 1, // Monday is the first day of the week.
+      doy: 7  // The week that contains Jan 1st is the first week of the year.
     },
     buttonText: {
       prev: "geri",
       next: "ileri",
-      today: "bug\xFCn",
+      today: "bugün",
       month: "Ay",
       week: "Hafta",
-      day: "G\xFCn",
+      day: "Gün",
       list: "Ajanda"
     },
     weekText: "Hf",
-    allDayText: "T\xFCm g\xFCn",
+    allDayText: "Tüm gün",
     moreLinkText: "daha fazla",
-    noEventsText: "G\xF6sterilecek etkinlik yok"
+    noEventsText: "Gösterilecek etkinlik yok"
   };
 
   return tr;

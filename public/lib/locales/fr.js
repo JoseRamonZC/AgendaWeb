@@ -4,23 +4,23 @@ FullCalendar.globalLocales.push(function () {
   var fr = {
     code: "fr",
     week: {
-      dow: 1,
-      doy: 4
+      dow: 1, // Monday is the first day of the week.
+      doy: 4  // The week that contains Jan 4th is the first week of the year.
     },
     buttonText: {
-      prev: "Pr\xE9c\xE9dent",
+      prev: "Précédent",
       next: "Suivant",
       today: "Aujourd'hui",
-      year: "Ann\xE9e",
+      year: "Année",
       month: "Mois",
       week: "Semaine",
       day: "Jour",
       list: "Planning"
     },
     weekText: "Sem.",
-    allDayText: "Toute la journ\xE9e",
+    allDayText: "Toute la journée",
     moreLinkText: "en plus",
-    noEventsText: "Aucun \xE9v\xE9nement \xE0 afficher"
+    noEventsText: "Aucun événement à afficher"
   };
 
   return fr;

@@ -4,22 +4,22 @@ FullCalendar.globalLocales.push(function () {
   var is = {
     code: "is",
     week: {
-      dow: 1,
-      doy: 4
+      dow: 1, // Monday is the first day of the week.
+      doy: 4  // The week that contains Jan 4th is the first week of the year.
     },
     buttonText: {
       prev: "Fyrri",
-      next: "N\xE6sti",
-      today: "\xCD dag",
-      month: "M\xE1nu\xF0ur",
+      next: "Næsti",
+      today: "Í dag",
+      month: "Mánuður",
       week: "Vika",
       day: "Dagur",
-      list: "Dagskr\xE1"
+      list: "Dagskrá"
     },
     weekText: "Vika",
     allDayText: "Allan daginn",
     moreLinkText: "meira",
-    noEventsText: "Engir vi\xF0bur\xF0ir til a\xF0 s\xFDna"
+    noEventsText: "Engir viðburðir til að sýna"
   };
 
   return is;

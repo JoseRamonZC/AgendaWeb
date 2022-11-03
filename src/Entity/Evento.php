@@ -32,6 +32,12 @@ class Evento
     #[ORM\Column(length: 100)]
     private ?string $tipo = null;
 
+    #[ORM\Column(length: 7)]
+    private ?string $background_color = null;
+
+    #[ORM\Column(length: 7)]
+    private ?string $text_color = null;
+
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'evento')]
     private $user;
 
@@ -104,6 +110,31 @@ class Evento
     {
         return $this->tipo;
     }
+
+    public function getBackgroundColor(): ?string
+    {
+        return $this->background_color;
+    }
+
+    public function setBackgroundColor(string $background_color): self
+    {
+        $this->background_color = $background_color;
+
+        return $this;
+    }
+
+    public function getTextColor(): ?string
+    {
+        return $this->text_color;
+    }
+
+    public function setTextColor(string $text_color): self
+    {
+        $this->text_color = $text_color;
+
+        return $this;
+    }
+
 
     public function setTipo(string $tipo): self
     {

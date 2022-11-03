@@ -4,8 +4,8 @@ FullCalendar.globalLocales.push(function () {
   var es = {
     code: "es",
     week: {
-      dow: 1,
-      doy: 4
+      dow: 1, // Monday is the first day of the week.
+      doy: 4  // The week that contains Jan 4th is the first week of the year.
     },
     buttonText: {
       prev: "Ant",
@@ -13,31 +13,13 @@ FullCalendar.globalLocales.push(function () {
       today: "Hoy",
       month: "Mes",
       week: "Semana",
-      day: "D\xEDa",
+      day: "Día",
       list: "Agenda"
     },
-    buttonHints: {
-      prev: "$0 antes",
-      next: "$0 siguiente",
-      today: function(buttonText) {
-        return buttonText === "D\xEDa" ? "Hoy" : (buttonText === "Semana" ? "Esta" : "Este") + " " + buttonText.toLocaleLowerCase();
-      }
-    },
-    viewHint: function(buttonText) {
-      return "Vista " + (buttonText === "Semana" ? "de la" : "del") + " " + buttonText.toLocaleLowerCase();
-    },
     weekText: "Sm",
-    weekTextLong: "Semana",
-    allDayText: "Todo el d\xEDa",
-    moreLinkText: "m\xE1s",
-    moreLinkHint: function(eventCnt) {
-      return "Mostrar ".concat(eventCnt, " eventos m\xE1s");
-    },
-    noEventsText: "No hay eventos para mostrar",
-    navLinkHint: "Ir al $0",
-    closeHint: "Cerrar",
-    timeHint: "La hora",
-    eventHint: "Evento"
+    allDayText: "Todo el día",
+    moreLinkText: "más",
+    noEventsText: "No hay eventos para mostrar"
   };
 
   return es;

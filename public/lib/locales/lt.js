@@ -4,22 +4,22 @@ FullCalendar.globalLocales.push(function () {
   var lt = {
     code: "lt",
     week: {
-      dow: 1,
-      doy: 4
+      dow: 1, // Monday is the first day of the week.
+      doy: 4  // The week that contains Jan 4th is the first week of the year.
     },
     buttonText: {
       prev: "Atgal",
       next: "Pirmyn",
-      today: "\u0160iandien",
-      month: "M\u0117nuo",
-      week: "Savait\u0117",
+      today: "Šiandien",
+      month: "Mėnuo",
+      week: "Savaitė",
       day: "Diena",
-      list: "Darbotvark\u0117"
+      list: "Darbotvarkė"
     },
     weekText: "SAV",
-    allDayText: "Vis\u0105 dien\u0105",
+    allDayText: "Visą dieną",
     moreLinkText: "daugiau",
-    noEventsText: "N\u0117ra \u012Fvyki\u0173 rodyti"
+    noEventsText: "Nėra įvykių rodyti"
   };
 
   return lt;

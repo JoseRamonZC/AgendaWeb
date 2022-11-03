@@ -41,42 +41,5 @@ class EventoRepository extends ServiceEntityRepository
     }
 
 
-    public function buscar(User $user)
-    {
-        $em = $doctrine->getManager();
 
-        $qEvento = $em->getManager()->createQuery(''
-        . 'SELECT x FROM App:Evento x '
-        . 'JOIN x.user u '
-        . 'WHERE x.user_id = ' . $user->getId() . ' '
-        );
-            $eventos = $qEvento ->getResult();
-
-            echo json_encode($eventos);
-    }
-
-//    /**
-//     * @return Evento[] Returns an array of Evento objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('e')
-//            ->andWhere('e.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('e.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
-
-//    public function findOneBySomeField($value): ?Evento
-//    {
-//        return $this->createQueryBuilder('e')
-//            ->andWhere('e.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
 }

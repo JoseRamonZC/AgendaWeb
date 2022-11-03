@@ -4,22 +4,22 @@ FullCalendar.globalLocales.push(function () {
   var lv = {
     code: "lv",
     week: {
-      dow: 1,
-      doy: 4
+      dow: 1, // Monday is the first day of the week.
+      doy: 4  // The week that contains Jan 4th is the first week of the year.
     },
     buttonText: {
       prev: "Iepr.",
-      next: "N\u0101k.",
-      today: "\u0160odien",
-      month: "M\u0113nesis",
-      week: "Ned\u0113\u013Ca",
+      next: "Nāk.",
+      today: "Šodien",
+      month: "Mēnesis",
+      week: "Nedēļa",
       day: "Diena",
-      list: "Dienas k\u0101rt\u012Bba"
+      list: "Dienas kārtība"
     },
     weekText: "Ned.",
     allDayText: "Visu dienu",
     moreLinkText: function(n) {
-      return "+v\u0113l " + n;
+      return "+vēl " + n;
     },
     noEventsText: "Nav notikumu"
   };

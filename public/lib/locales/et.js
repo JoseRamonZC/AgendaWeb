@@ -4,24 +4,24 @@ FullCalendar.globalLocales.push(function () {
   var et = {
     code: "et",
     week: {
-      dow: 1,
-      doy: 4
+      dow: 1, // Monday is the first day of the week.
+      doy: 4  // The week that contains Jan 4th is the first week of the year.
     },
     buttonText: {
       prev: "Eelnev",
-      next: "J\xE4rgnev",
-      today: "T\xE4na",
+      next: "Järgnev",
+      today: "Täna",
       month: "Kuu",
-      week: "N\xE4dal",
-      day: "P\xE4ev",
-      list: "P\xE4evakord"
+      week: "Nädal",
+      day: "Päev",
+      list: "Päevakord"
     },
-    weekText: "n\xE4d",
-    allDayText: "Kogu p\xE4ev",
+    weekText: "näd",
+    allDayText: "Kogu päev",
     moreLinkText: function(n) {
       return "+ veel " + n;
     },
-    noEventsText: "Kuvamiseks puuduvad s\xFCndmused"
+    noEventsText: "Kuvamiseks puuduvad sündmused"
   };
 
   return et;

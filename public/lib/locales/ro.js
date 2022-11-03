@@ -4,24 +4,24 @@ FullCalendar.globalLocales.push(function () {
   var ro = {
     code: "ro",
     week: {
-      dow: 1,
-      doy: 7
+      dow: 1, // Monday is the first day of the week.
+      doy: 7  // The week that contains Jan 1st is the first week of the year.
     },
     buttonText: {
-      prev: "precedent\u0103",
-      next: "urm\u0103toare",
+      prev: "precedentă",
+      next: "următoare",
       today: "Azi",
-      month: "Lun\u0103",
-      week: "S\u0103pt\u0103m\xE2n\u0103",
+      month: "Lună",
+      week: "Săptămână",
       day: "Zi",
-      list: "Agend\u0103"
+      list: "Agendă"
     },
-    weekText: "S\u0103pt",
-    allDayText: "Toat\u0103 ziua",
+    weekText: "Săpt",
+    allDayText: "Toată ziua",
     moreLinkText: function(n) {
       return "+alte " + n;
     },
-    noEventsText: "Nu exist\u0103 evenimente de afi\u0219at"
+    noEventsText: "Nu există evenimente de afișat"
   };
 
   return ro;

@@ -41,8 +41,52 @@
           <script src="{{ asset('js/jquery.min.js') }}"></script>
           <script src="{{ asset('bootstrap/js/bootstrap.js') }}"></script>
   </head>
+
+   {# <table class="table display:none">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titulo</th>
+                <th>Descripcion</th>
+                <th>Dia</th>
+                <th>Periodicidad</th>
+                <th>Categoria</th>
+                <th>Tipo</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for evento in eventos %}
+            <tr>
+                <td>{{ evento.id }}</td>
+                {% if evento.titulo is defined and evento.titulo is not null %}
+										<td>
+											{{ evento.titulo }}
+										</td>
+									{% endif %}
+                <td>{{ evento.descripcion }}</td>
+                <td>{{ evento.dia ? evento.dia|date('Y-m-d') : '' }}</td>
+                <td>{{ evento.periodicidad ? evento.periodicidad.format('%y year(s), %m month(s), %d day(s)') : '' }}</td>
+                <td>{{ evento.categoria ? evento.categoria|join(', ') : '' }}</td>
+                <td>{{ evento.tipo }}</td>
+                <td>
+                    <a href="{{ path('app_evento_show', {'id': evento.id}) }}">Mostrar</a>
+                    <a href="{{ path('app_evento_edit', {'id': evento.id}) }}">Editar</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no se encontró ningún evento</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table> #}
     
     <script>
+
+
+      var data = {{ data | raw }}
+
 
       document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
@@ -55,41 +99,15 @@
             $("#exampleModal").modal();
           },
           locale:"Es",
+          timeZone: 'Europe/Spain',
           headerToolbar:{
             left:'prev,next, today',
             center:'title',
             right:'dayGridMonth,timeGridWeek,timeGridDay'
           },
-           eventSources: [
-
-            // your event source
-            {
-              events: [ // put the array in the `events` property
-                {
-                  title  : 'event1',
-                  description : 'estamos solos',
-                  start  : '2022-11-01'
-                },
-                 {
-                  title  : 'event1',
-                  description : 'estamos solos',
-                  start  : '2022-11-02'
-                },
-                {
-                  title  : 'event2',
-                  description : 'estamos solos2',
-                  start  : '2022-11-05',
-                  end    : '2022-11-07'
-                },
-                {
-                  title  : 'event3',
-                  description : 'estamos solos3',
-                  start  : '2022-11-09T12:30:00',
-                }
-              ],
-              color: 'green',     // an option!
-              textColor: 'white' // an option!
-            }],
+              events:  data,
+              editable: true,
+              eventResizableFromStart: true,
 
             eventClick:function(callEvent, jsEvent, view){
               $("#tituloEvento").html(callEvent.title);
@@ -98,15 +116,11 @@
               $("#exampleModal").modal();
             }
 
-        });
+        })
         calendar.render();
       });
-
     </script>
-
-    
   <body>
-
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">

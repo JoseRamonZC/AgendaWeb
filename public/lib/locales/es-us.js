@@ -4,8 +4,8 @@ FullCalendar.globalLocales.push(function () {
   var esUs = {
     code: "es",
     week: {
-      dow: 0,
-      doy: 6
+      dow: 0, // Sunday is the first day of the week.
+      doy: 6  // The week that contains Jan 1st is the first week of the year.
     },
     buttonText: {
       prev: "Ant",
@@ -13,12 +13,12 @@ FullCalendar.globalLocales.push(function () {
       today: "Hoy",
       month: "Mes",
       week: "Semana",
-      day: "D\xEDa",
+      day: "Día",
       list: "Agenda"
     },
     weekText: "Sm",
-    allDayText: "Todo el d\xEDa",
-    moreLinkText: "m\xE1s",
+    allDayText: "Todo el día",
+    moreLinkText: "más",
     noEventsText: "No hay eventos para mostrar"
   };
 

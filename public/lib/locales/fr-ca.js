@@ -4,19 +4,19 @@ FullCalendar.globalLocales.push(function () {
   var frCa = {
     code: "fr",
     buttonText: {
-      prev: "Pr\xE9c\xE9dent",
+      prev: "Précédent",
       next: "Suivant",
       today: "Aujourd'hui",
-      year: "Ann\xE9e",
+      year: "Année",
       month: "Mois",
       week: "Semaine",
       day: "Jour",
       list: "Mon planning"
     },
     weekText: "Sem.",
-    allDayText: "Toute la journ\xE9e",
+    allDayText: "Toute la journée",
     moreLinkText: "en plus",
-    noEventsText: "Aucun \xE9v\xE9nement \xE0 afficher"
+    noEventsText: "Aucun événement à afficher"
   };
 
   return frCa;

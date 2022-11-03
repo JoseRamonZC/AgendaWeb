@@ -4,42 +4,22 @@ FullCalendar.globalLocales.push(function () {
   var sv = {
     code: "sv",
     week: {
-      dow: 1,
-      doy: 4
+      dow: 1, // Monday is the first day of the week.
+      doy: 4  // The week that contains Jan 4th is the first week of the year.
     },
     buttonText: {
-      prev: "F\xF6rra",
-      next: "N\xE4sta",
+      prev: "Förra",
+      next: "Nästa",
       today: "Idag",
-      month: "M\xE5nad",
+      month: "Månad",
       week: "Vecka",
       day: "Dag",
       list: "Program"
     },
-    buttonHints: {
-      prev: function(buttonText) {
-        return "F\xF6reg\xE5ende ".concat(buttonText.toLocaleLowerCase());
-      },
-      next: function(buttonText) {
-        return "N\xE4sta ".concat(buttonText.toLocaleLowerCase());
-      },
-      today: function(buttonText) {
-        return (buttonText === "Program" ? "Detta" : "Denna") + " " + buttonText.toLocaleLowerCase();
-      }
-    },
-    viewHint: "$0 vy",
-    navLinkHint: "G\xE5 till $0",
-    moreLinkHint: function(eventCnt) {
-      return "Visa ytterligare ".concat(eventCnt, " h\xE4ndelse").concat(eventCnt === 1 ? "" : "r");
-    },
     weekText: "v.",
-    weekTextLong: "Vecka",
     allDayText: "Heldag",
     moreLinkText: "till",
-    noEventsText: "Inga h\xE4ndelser att visa",
-    closeHint: "St\xE4ng",
-    timeHint: "Klockan",
-    eventHint: "H\xE4ndelse"
+    noEventsText: "Inga händelser att visa"
   };
 
   return sv;

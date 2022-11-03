@@ -5,9 +5,9 @@ FullCalendar.globalLocales.push(function () {
     code: "pt-br",
     buttonText: {
       prev: "Anterior",
-      next: "Pr\xF3ximo",
+      next: "Próximo",
       today: "Hoje",
-      month: "M\xEAs",
+      month: "Mês",
       week: "Semana",
       day: "Dia",
       list: "Lista"
@@ -17,7 +17,7 @@ FullCalendar.globalLocales.push(function () {
     moreLinkText: function(n) {
       return "mais +" + n;
     },
-    noEventsText: "N\xE3o h\xE1 eventos para mostrar"
+    noEventsText: "Não há eventos para mostrar"
   };
 
   return ptBr;

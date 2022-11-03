@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Evento;
+use Doctrine\Persistence\ManagerRegistry;
+use App\Entity\User;
 use App\Form\EventoType;
 use App\Repository\EventoRepository;
 use Knp\Component\Pager\PaginatorInterface;
@@ -83,4 +85,9 @@ class EventoController extends AbstractController
 
         return $this->redirectToRoute('app_evento', [], Response::HTTP_SEE_OTHER);
     }
+
+    
+
+   
+
 }
