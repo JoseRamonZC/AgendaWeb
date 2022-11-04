@@ -7,7 +7,8 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: EventoRepository::class)]
-class Evento
+
+class Evento implements \JsonSerializable
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -154,4 +155,9 @@ class Evento
 
         return $this;
     }
+
+    public function jsonSerialize(){
+        return get_object_vars($this);
+    }
+
 }
