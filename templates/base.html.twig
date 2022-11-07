@@ -24,12 +24,14 @@
               </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item ml-3">
-                  {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
-                  {% if app.request.get('_route') == "app_evento_new" %}
-                    {% else %}
-                    {% endif %}
-                  </li>
+                    <li class="nav-item ml-3">
+                {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                {% if app.request.get('_route') == "RegistrarPost" %}
+                  <a class="nav-link a active" aria-current="page" href="{{ path('app_evento_new') }}">Crear Evento</a>
+                  {% else %}
+                  <a class="nav-link a" aria-current="page" href="{{ path('app_evento_new') }}">Crear Evento</a>
+                  {% endif %}
+                </li>
                   <li class="nav-item">
                   {% if app.request.get('_route') == "app_evento" %}
                     <a class="nav-link a ml-3 mr-5 active" href="{{ path('app_evento') }}">Mis eventos</a>

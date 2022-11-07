@@ -18,24 +18,16 @@ class DashboardController extends AbstractController
     {
 
         $em = $doctrine;
+        $user = $this->getUser();
+
+        dump($user);
     
-        $ev = $em->getManager()->createQuery("SELECT x.titulo AS title, x.dia AS start, x.background_color AS color, x.text_color AS textColor FROM App:Evento x JOIN App:User s WHERE s.id = x.user");
+        $ev = $em->getManager()->createQuery('SELECT x.titulo AS title, x.dia AS start, x.background_color AS color, x.text_color AS textColor FROM App:Evento x JOIN App:User s WHERE s.id = x.user AND s.id = ' . $user->getId() . '');
         $resultados1 = $ev->getResult();
-
-
-
-
-            if (isset($_GET["query"])) {
-                $query = $em->getManager()->createQuery("SELECT x FROM App:Evento x WHERE x.titulo LIKE '%".$_GET["query"]."%'");
-                $ev = $query->getResult();
-                $search = true;
-            } else {
-                $search = false;
-            };
-    
-            return $this->render('dashboard/index.html.twig', [
+        
+        
+        return $this->render('dashboard/index.html.twig', [
                 'eventos' => $resultados1,
-                'query' => $search,
             ]);
         }
 }

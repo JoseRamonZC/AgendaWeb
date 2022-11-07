@@ -7,7 +7,6 @@ use Doctrine\Persistence\ManagerRegistry;
 use App\Entity\User;
 use App\Form\EventoType;
 use App\Repository\EventoRepository;
-use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,12 +15,27 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/evento')]
 class EventoController extends AbstractController
 {
-    #[Route('/', name: 'home', methods: ['GET'])]
+    //#[Route('/', name: 'home', methods: ['GET'])]
 
-    public function index(EventoRepository $eventoRepository, PaginatorInterface $paginator): Response
+    public function index(EventoRepository $eventoRepository,ManagerRegistry $doctrine): Response
     {
+        $em = $doctrine->getManager();
+        $user = $this->getUser();
+        $eventos = $em->getRepository(Evento::class)->findBy(['user'=>$user]);
+
+      
+        if (isset($_GET["query"])) {
+            $query = $em->createQuery("SELECT x FROM App:Evento x WHERE x.titulo LIKE '%".$_GET["query"]."%'");
+            $ev = $query->getResult();
+            $search = true;
+        } else {
+            $search = false;
+        };
+
+
         return $this->render('evento/index.html.twig', [
-            'eventos' => $eventoRepository->findAll(),
+        'evento'=>$eventos,
+        'query' => $search,
         ]);
     }
 

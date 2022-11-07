@@ -40,6 +40,16 @@
             <script src="{{ asset('js/jquery.min.js') }}"></script>
             <script src="{{ asset('bootstrap/js/bootstrap.js') }}"></script>
 
+            <div class="p-3 m-4">
+        <form action="#" method="get" class="row mb-3">
+                <div class="col-6">
+                    <input type="text" name="query" id="query" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-info col-2">Buscar</button>
+
+        </form>
+    </div>
+
     <div id="container2" class="container bg-white shadow p-1 mb-5 bg-body rounded">
 
     <h1 class="p-4 ml-4">Eventos</h1>
@@ -57,7 +67,7 @@
             </tr>
         </thead>
         <tbody>
-        {% for evento in eventos %}
+        {% for evento in evento %}
             <tr>
                 <td>{{ evento.id }}</td>
                 <td>{{ evento.titulo }}</td>

@@ -5,8 +5,9 @@ namespace App\Form;
 use App\Entity\Evento;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\ColorType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -17,14 +18,27 @@ class EventoType extends AbstractType
         $builder
             ->add('titulo')
             ->add('descripcion', TextAreaType::class)
-            ->add('dia', DateTimeType::class, [
-                'date_widget' => 'single_text'
+            ->add('dia', DateType::class, [
+                'widget' => 'single_text',
             ])
-            ->add('periodicidad')
+            ->add('periodicidad', DateType::class, [
+                'widget' => 'single_text',
+            ])
             ->add('background_color', ColorType::class)
             ->add('text_color', ColorType::class)
-            ->add('categoria')
-            ->add('tipo')
+            ->add('categoria', ChoiceType::class, [
+                'choices' => [
+                    'Importante' => 'im',
+                    'No importante' => 'nim',
+                ],
+            ])
+            ->add('tipo', ChoiceType::class, [
+                'choices' => [
+                    'Familiar' => 'fa',
+                    'Trbajo' => 'tr',
+                    'Personal' => 'pe',
+                ]
+            ],)
         ;
     }
 
