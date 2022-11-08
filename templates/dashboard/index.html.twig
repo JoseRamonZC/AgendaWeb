@@ -85,32 +85,91 @@
         })
         calendar.render();
       });
+
     </script>
   <body>
+
 
     <div class="contenedor">
     
     <div class="caja1 p-3" id='caja1'>
     
-      <h4>Proximo evento</h4>
+      <h4 class="mb-1">Proximo evento</h4>
+      
+        <table class="table">
+          <thead>
+              <tr>
+                  <th>Titulo</th>
+                  <th>Descripcion</th>
+              </tr>
+          </thead>
+          <tbody>
+          {% for EventoP in EventoP %}
+              <tr>
+                  <td>{{ EventoP.titulo }}</td>
+                  <td>{{ EventoP.descripcion }}</td>
+              </tr>
+          {% endfor %}
+          </tbody>
+      </table>
     
     </div>
 
     <div class="caja2 p-3" id='caja2'>
 
-      <h4>Primer evento de la semana siguiente</h4>
+      <h4 class="mb-1">Primer evento de la semana siguiente</h4>
+
+        <table class="table">
+          <thead>
+              <tr>
+                  <th>Titulo</th>
+                  <th>Descripcion</th>
+              </tr>
+          </thead>
+          <tbody>
+          {% for EventoPSem in EventoPSem %}
+              <tr>
+                  <td>{{ EventoPSem.titulo }}</td>
+                  <td>{{ EventoPSem.descripcion }}</td>
+              </tr>
+          {% endfor %}
+          </tbody>
+      </table>
 
     </div>
 
     <div class="caja3 p-3" id='caja3'>
 
-      <h4>Categoría con más eventos</h4>
+      <h4 class="mb-4">Categoría con más eventos</h4>
+      
+        <p>La categoría
+        {% for categoria in categoria %}
+
+        <td>{{ categoria.categoria }}</td>
+          
+        {% endfor %} 
+        se repite
+        {% for categoria in categoria %}
+
+        <td>{{ categoria.maximo }}</td>
+          
+        {% endfor %}
+        veces
+        </p>
 
     </div>
 
     <div class="caja4 p-3" id='caja4'>
 
-      <h4>Número de eventos en el mes</h4>
+      <h4 class="mb-4">Número de eventos en el mes</h4>
+
+        <p>Este mes tenemos
+        {% for mesEvento in mesEvento %}
+
+        <td>{{ mesEvento.veces }}</td>
+          
+        {% endfor %} 
+        eventos</p>
 
     </div>
     
