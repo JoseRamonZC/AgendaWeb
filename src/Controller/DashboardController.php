@@ -22,7 +22,7 @@ class DashboardController extends AbstractController
         $em = $doctrine;
         $user = $this->getUser();
     
-        $ev = $em->getManager()->createQuery('SELECT x.titulo AS title, x.dia AS start, x.background_color AS color, x.text_color AS textColor FROM App:Evento x JOIN App:User s WHERE s.id = x.user AND s.id = ' . $user->getId() . '');
+        $ev = $em->getManager()->createQuery('SELECT x.titulo AS title, x.dia AS start, x.background_color AS color, x.text_color AS textColor, x.periodicidad AS DaysOfWeek FROM App:Evento x JOIN App:User s WHERE s.id = x.user AND s.id = ' . $user->getId() . '');
         $resultados1 = $ev->getResult();
 
 
@@ -36,14 +36,19 @@ class DashboardController extends AbstractController
 
         //Proximo evento de la semana que sigue
 
-        $week = date('Y-m-d H:i:s', strtotime("next monday"));
-       // $week = new Date($week);
-        //var_dump($query->getSQL());
+    $PeventoSem = $em->getManager()->createQuery("SELECT x FROM App:Evento x WHERE x.user = $id ORDER BY x.dia ASC");
+    $EventoPSem = $PeventoSem->getResult();
 
-        $PeventoSem = $em->getManager()->createQuery("SELECT x.titulo, x.descripcion FROM App:Evento x WHERE x.dia > $week AND x.user = $id");
-        $EventoPSem = $PeventoSem->getResult();
+    $eventos=[];
 
-        var_dump($EventoPSem);
+    $week = date('Y-m-d', strtotime("monday next week"));
+    $domingo = date('Y-m-d', strtotime("sunday next week"));
+
+        $EventoPSem = array_filter($EventoPSem, function($evento) use($week, $domingo) {
+            $d = $evento->getDia();
+            $str = $d->format("Y-m-d");
+            return $str >= $week && $str <= $domingo;
+        });
 
 
         //Categoria con mas eventos

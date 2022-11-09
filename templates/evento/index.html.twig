@@ -73,7 +73,7 @@
                 <td>{{ evento.titulo }}</td>
                 <td>{{ evento.descripcion }}</td>
                 <td>{{ evento.dia ? evento.dia|date('Y-m-d') : '' }}</td>
-                <td>{{ evento.periodicidad ? evento.periodicidad.format('%y year(s), %m month(s), %d day(s)') : '' }}</td>
+                <td>{{ evento.periodicidad }}</td>
                 <td>{{ evento.categoria ? evento.categoria|join(', ') : '' }}</td>
                 <td>{{ evento.tipo }}</td>
                 <td>
@@ -83,7 +83,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="8">no se encontró ningún evento</td>
+                <td colspan="8">No se encontró ningún evento</td>
             </tr>
         {% endfor %}
         </tbody>

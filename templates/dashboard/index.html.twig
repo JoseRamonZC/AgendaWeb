@@ -74,8 +74,6 @@
             right:'dayGridMonth,timeGridWeek,timeGridDay'
           },
               events: eventos,
-              editable: true,
-              eventResizableFromStart: true,
 
             eventClick:function(callEvent, jsEvent, view){
               $("#tituloEvento").html(callEvent.title);
@@ -132,6 +130,10 @@
                   <td>{{ EventoPSem.titulo }}</td>
                   <td>{{ EventoPSem.descripcion }}</td>
               </tr>
+          {% else %}
+            <tr>
+                <td colspan="8">No tienes ningún evento la semana que viene</td>
+            </tr>
           {% endfor %}
           </tbody>
       </table>

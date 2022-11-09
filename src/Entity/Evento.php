@@ -25,7 +25,7 @@ class Evento implements \JsonSerializable
     private ?\DateTimeInterface $dia = null;
 
     #[ORM\Column]
-    private ?\DateInterval $periodicidad = null;
+    private ?string $periodicidad = null;
 
     #[ORM\Column(length: 255)]
     private ?string $categoria = null;
@@ -41,7 +41,7 @@ class Evento implements \JsonSerializable
 
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'evento')]
     private $user;
-
+    
     public function getId(): ?int
     {
         return $this->id;
@@ -83,12 +83,12 @@ class Evento implements \JsonSerializable
         return $this;
     }
 
-    public function getPeriodicidad(): ?\DateInterval
+    public function getPeriodicidad(): ?string
     {
         return $this->periodicidad;
     }
 
-    public function setPeriodicidad(\DateInterval $periodicidad): self
+    public function setPeriodicidad(string $periodicidad): self
     {
         $this->periodicidad = $periodicidad;
 
