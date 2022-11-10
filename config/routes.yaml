@@ -11,7 +11,7 @@ app_registro:
     controller: App\Controller\RegistroController::index
 
 app_login:
-    path: /login
+    path: /
     controller: App\Controller\SecurityController::login
 
 app_logout:

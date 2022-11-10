@@ -51,21 +51,18 @@
 
     for (const evento of eventos){
 
-      evento.start = evento.start.date.split(" ")[0];
+      evento.start = evento.start.date;
 
     }
 
     console.log(eventos);
+    //eventos.sort();
 
 
       document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
           initialView: 'dayGridMonth',
-          dateClick: function(info) {
-            alert('Ha seleccionado: ' + info.dateStr);
-            info.dayEl.style.backgroundColor = 'red';
-          },
           locale:"Es",
           timeZone: 'Europe/Spain',
           headerToolbar:{
@@ -92,51 +89,23 @@
     
     <div class="caja1 p-3" id='caja1'>
     
-      <h4 class="mb-1">Proximo evento</h4>
-      
-        <table class="table">
-          <thead>
-              <tr>
-                  <th>Titulo</th>
-                  <th>Descripcion</th>
-              </tr>
-          </thead>
-          <tbody>
+      <h4 class="mb-4">Proximo evento</h4>
+        
+          Su proximo evento es: 
+
           {% for EventoP in EventoP %}
-              <tr>
-                  <td>{{ EventoP.titulo }}</td>
-                  <td>{{ EventoP.descripcion }}</td>
-              </tr>
-          {% endfor %}
-          </tbody>
-      </table>
+            {{ EventoP.titulo }}; {{ EventoP.descripcion }}
+           {% endfor %}
     
     </div>
 
     <div class="caja2 p-3" id='caja2'>
 
       <h4 class="mb-1">Primer evento de la semana siguiente</h4>
+        
+         El primer evento de la semana que viene es: 
 
-        <table class="table">
-          <thead>
-              <tr>
-                  <th>Titulo</th>
-                  <th>Descripcion</th>
-              </tr>
-          </thead>
-          <tbody>
-          {% for EventoPSem in EventoPSem %}
-              <tr>
-                  <td>{{ EventoPSem.titulo }}</td>
-                  <td>{{ EventoPSem.descripcion }}</td>
-              </tr>
-          {% else %}
-            <tr>
-                <td colspan="8">No tienes ningún evento la semana que viene</td>
-            </tr>
-          {% endfor %}
-          </tbody>
-      </table>
+           {{ events.titulo }};{{ events.descripcion }}
 
     </div>
 

@@ -41,13 +41,17 @@
             <script src="{{ asset('bootstrap/js/bootstrap.js') }}"></script>
 
             <div class="p-3 m-4">
-        <form action="#" method="get" class="row mb-3">
-                <div class="col-6">
+           <form action="#" method="get" class="row">
+                <div class="col-5 m-auto">
                     <input type="text" name="query" id="query" class="form-control">
                 </div>
-                <button type="submit" class="btn btn-info col-2">Buscar</button>
-
-        </form>
+                <button type="submit" class="button btn-info col-1">Buscar</button>
+                {% if query == true  %}
+                <a class="col-1" href="{{ path('app_evento') }}">
+                    <input type="button" class="button2 btn-danger w-100 h-100" value="Resetear">
+                    </a>
+                {% endif %}
+            </form>
     </div>
 
     <div id="container2" class="container bg-white shadow p-1 mb-5 bg-body rounded">
@@ -72,7 +76,7 @@
                 <td>{{ evento.id }}</td>
                 <td>{{ evento.titulo }}</td>
                 <td>{{ evento.descripcion }}</td>
-                <td>{{ evento.dia ? evento.dia|date('Y-m-d') : '' }}</td>
+                <td>{{ evento.dia ? evento.dia|date('Y-m-d H:i') : '' }}</td>
                 <td>{{ evento.periodicidad }}</td>
                 <td>{{ evento.categoria ? evento.categoria|join(', ') : '' }}</td>
                 <td>{{ evento.tipo }}</td>

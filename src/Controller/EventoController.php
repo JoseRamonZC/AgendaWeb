@@ -26,7 +26,7 @@ class EventoController extends AbstractController
       
         if (isset($_GET["query"])) {
             $query = $em->createQuery("SELECT x FROM App:Evento x WHERE x.titulo LIKE '%".$_GET["query"]."%'");
-            $ev = $query->getResult();
+            $eventos = $query->getResult();
             $search = true;
         } else {
             $search = false;

@@ -54,11 +54,11 @@
                           </tr>
                           <tr>
                               <th>Dia</th>
-                              <td>{{ evento.dia ? evento.dia|date('Y-m-d') : '' }}</td>
+                              <td>{{ evento.dia ? evento.dia|date('Y-m-d H:i') : '' }}</td>
                           </tr>
                           <tr>
                               <th>Periodicidad</th>
-                              <td>{{ evento.periodicidad ? evento.periodicidad.format('%y year(s), %m month(s), %d day(s)') : '' }}</td>
+                              <td>{{ evento.periodicidad}}</td>
                           </tr>
                           <tr>
                               <th>Categoria</th>

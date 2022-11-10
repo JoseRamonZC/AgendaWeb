@@ -27,7 +27,7 @@ class RegistroController extends AbstractController
             $user->setPassword($hashedPassword);
             $em->persist($user);
             $em->flush();
-            return $this->redirectToRoute('login', array(
+            return $this->redirectToRoute('/', array(
                 'excepcion' => 1,
                 'codigo' => '¡Correcto!',
                 'mensaje' => 'El usuario se ha añadido correctamente',

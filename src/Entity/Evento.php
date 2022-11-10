@@ -21,7 +21,7 @@ class Evento implements \JsonSerializable
     #[ORM\Column(length: 255)]
     private ?string $descripcion = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $dia = null;
 
     #[ORM\Column]
