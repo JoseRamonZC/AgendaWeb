@@ -18,23 +18,14 @@ class EventoType extends AbstractType
         $builder
             ->add('titulo')
             ->add('descripcion', TextAreaType::class)
-            ->add('dia', DateTimeType::class)
+            ->add('dia', DateTimeType::class, [
+                'widget' => 'single_text',
+            ])
             ->add('periodicidad')
             ->add('background_color', ColorType::class)
             ->add('text_color', ColorType::class)
-            ->add('categoria', ChoiceType::class, [
-                'choices' => [
-                    'Importante' => 'Importante',
-                    'No importante' => 'No importante',
-                ],
-            ])
-            ->add('tipo', ChoiceType::class, [
-                'choices' => [
-                    'Familiar' => 'Familiar',
-                    'Trabajo' => 'Trabajo',
-                    'Personal' => 'Personal',
-                ]
-            ]);
+            ->add('categoria')
+            ->add('tipo');
     }
 
     public function configureOptions(OptionsResolver $resolver): void
