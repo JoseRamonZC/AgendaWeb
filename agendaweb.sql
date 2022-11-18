@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-11-2022 a las 13:08:00
+-- Tiempo de generación: 18-11-2022 a las 11:00:19
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.0.19
 
@@ -50,26 +50,31 @@ CREATE TABLE `evento` (
   `id` int(11) NOT NULL,
   `titulo` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `descripcion` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `dia` date NOT NULL,
-  `periodicidad` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '(DC2Type:dateinterval)',
-  `categoria` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tipo` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `dia` datetime NOT NULL,
+  `periodicidad` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_id` int(11) DEFAULT NULL,
   `background_color` varchar(7) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `text_color` varchar(7) COLLATE utf8mb4_unicode_ci NOT NULL
+  `text_color` varchar(7) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `categoria` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tipo` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `evento`
 --
 
-INSERT INTO `evento` (`id`, `titulo`, `descripcion`, `dia`, `periodicidad`, `categoria`, `tipo`, `user_id`, `background_color`, `text_color`) VALUES
-(9, 'rrrr', 'rrrr', '2022-10-31', '+P00Y00M00DT00H00M00S', 'ererer', 'rerere', 2, '', ''),
-(10, 'wewewewe', 'ewewewewew', '2022-11-03', '+P00Y00M00DT00H00M00S', 'ewewewew', 'ewewewew', 2, '', ''),
-(11, 'rrewwe', 'rreweeqrdfda', '2022-11-04', '+P00Y00M00DT00H00M00S', 'asfewqfdsa', 'adfewqfds', 2, '', ''),
-(12, 'jajajajaja', 'jajajajaja', '2022-11-10', '+P00Y00M00DT00H00M00S', 'jajajaja', 'jajajaja', 2, '#80ff00', '#ffffff'),
-(13, 'aasasasa', 'asasasas', '2022-11-10', '+P00Y00M00DT00H00M00S', 'asasa', 'assasa', 2, '#800080', '#ffffff'),
-(14, 'hola mundo', 'hola hola hola', '2022-11-11', '+P00Y00M00DT00H00M00S', 'ewew', 'ewew', 2, '#80ff00', '#ffffff');
+INSERT INTO `evento` (`id`, `titulo`, `descripcion`, `dia`, `periodicidad`, `user_id`, `background_color`, `text_color`, `categoria`, `tipo`) VALUES
+(24, 'sasasaa', 'sasasasa', '2022-11-10 00:00:00', '2', 2, '#ffffff', '#000000', '', ''),
+(25, 'sesese', 'seseses', '2022-11-11 21:00:00', '1', 2, '#8080ff', '#ffffff', '', ''),
+(26, 'frfrfrf', 'frfrfrfr', '2022-11-11 19:00:00', '0', 2, '#cf50da', '#ffffff', '', ''),
+(27, 'gtgtgt', 'gtgtgt', '2022-11-16 00:00:00', '3', 2, '#7af1df', '#ffffff', '', ''),
+(28, 'ded', 'dede', '2022-11-15 00:00:00', '2', 2, '#2f46ec', '#ffffff', '', ''),
+(29, 'tyty', 'tytyt', '2022-11-14 00:00:00', '4', 2, '#ec77cc', '#ffffff', '', ''),
+(30, 'rerere', 'rerere', '2022-11-13 00:00:00', '1', 2, '#d2ea4d', '#ffffff', '', ''),
+(31, 'ds', 'ds', '2022-11-12 00:00:00', '2', 2, '#000000', '#ffffff', '', ''),
+(32, 'tr', 'tr', '2022-11-25 10:00:00', '2', 2, '#000000', '#1123ff', '', ''),
+(33, 'FFF', 'FFF', '2022-11-26 16:15:00', '2', 2, '#000000', '#000000', '', ''),
+(34, 'yuyu', 'yuyuy', '2022-11-26 10:12:00', '2', 2, '#000000', '#000000', '', '');
 
 -- --------------------------------------------------------
 
@@ -107,7 +112,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `email`, `roles`, `password`, `nombre`) VALUES
 (1, 'Admin@gmail.com', '[\"ROLE_ADMIN\"]', '1234', 'Admin'),
-(2, 'Admin2@gmail.com', '[\"ROLE_ADMIN\"]', '$2y$13$H5EUZd8YFXFyIUMCrDj3QuZXyM23qVoiwPGBkzc0BnW4YWXBD/XeW', 'Admin2');
+(2, 'Admin2@gmail.com', '[\"ROLE_ADMIN\"]', '$2y$13$H5EUZd8YFXFyIUMCrDj3QuZXyM23qVoiwPGBkzc0BnW4YWXBD/XeW', 'Admin2'),
+(3, 'admin3@gmail.com', '[\"ROLE_USER\"]', '$2y$13$WH1FsmM5MivvXQ9dNQeXguJcwNknG0GW8VJLfGEhnQ5phbK29JQfy', 'admin3');
 
 --
 -- Índices para tablas volcadas
@@ -151,7 +157,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT de la tabla `evento`
 --
 ALTER TABLE `evento`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT de la tabla `messenger_messages`
@@ -163,7 +169,7 @@ ALTER TABLE `messenger_messages`
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas

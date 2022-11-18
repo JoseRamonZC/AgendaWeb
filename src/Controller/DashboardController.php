@@ -39,10 +39,16 @@ class DashboardController extends AbstractController
         //     }
         // }
 
+        for ($j=0; $j < sizeof($resultados1); $j++) {
 
-        for ($i=0; $i < sizeof($resultados1); $i++) { 
-            $resultados1[$i]->setDia(new DateTime())->setTimestamp("$i week", $evento->getDia());
+            //$resultados1[$j]->getPeriocidad();
+            if (array_values(intval($resultados1[$j]->getPeriocidad()) > 1)) {
+                for ($i=0; $i < sizeof($resultados1); $i++) { 
+                    $resultados1[$i]->setDia(new DateTime())->setTimestamp("$i week", $evento->getDia());
+                }
+            }
         }
+
 
         //Proximo evento
 
@@ -77,8 +83,7 @@ class DashboardController extends AbstractController
                                                       HAVING COUNT(x.categoria) = maximo ORDER BY x.categoria ASC ")->setMaxResults(1) ;
         $categoria = $Ncategoria->getResult();
 
-        
-        
+               
         //Eventos del mes
 
         $mes = date('m');
@@ -86,9 +91,8 @@ class DashboardController extends AbstractController
             $Neventos = $em->getManager()->createQuery('SELECT MONTH(x.dia) AS mes, COUNT(x.titulo) AS veces FROM App:Evento x WHERE x.user = '. $id.' GROUP BY mes HAVING mes = ' . $mes . '');
             $mesEvento = $Neventos->getResult();
 
-       
-        
-        
+            
+            
         return $this->render('dashboard/index.html.twig', [
                 'eventos' => array_slice($resultados1, 1),
                 'mesEvento' => $mesEvento,
